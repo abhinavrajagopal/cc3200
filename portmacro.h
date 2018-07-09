@@ -8,7 +8,7 @@ extern "C" {
 /*-----------------------------------------------------------
  * Port specific definitions.
  *
- * The settings in this file configure FreeRTOS correctly for the
+ * The settings in this file configure RTOS correctly for the
  * given hardware and compiler.
  *
  * These settings should not be altered.
