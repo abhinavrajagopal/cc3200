@@ -44,11 +44,11 @@
 #include <ti/devices/cc32xx/driverlib/rom_map.h>
 #include <ti/devices/cc32xx/driverlib/systick.h>
 
-#include <ti/drivers/Power.h>
-#include <ti/drivers/power/PowerCC32XX.h>
-#include <ti/drivers/dpl/ClockP.h>
+#include <Power.h>
+#include <power/PowerCC32XX.h>
+#include <dpl/ClockP.h>
 
-#include <FreeRTOS.h>
+#include <RTOS.h>
 #include <task.h>
 #include <portmacro.h>
 

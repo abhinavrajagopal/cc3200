@@ -33,9 +33,9 @@
  *  ======== MutexP_freertos.c ========
  */
 
-#include <ti/drivers/dpl/MutexP.h>
+#include <dpl/MutexP.h>
 
-#include <FreeRTOS.h>
+#include <RTOS.h>
 #include <semphr.h>
 #include <queue.h>
 

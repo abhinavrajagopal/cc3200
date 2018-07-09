@@ -32,7 +32,7 @@
 /*
  *  ======== SystemP_freertos.c ========
  */
-#include <ti/drivers/dpl/SystemP.h>
+#include <dpl/SystemP.h>
 
 #include <stddef.h>
 #include <stdint.h>

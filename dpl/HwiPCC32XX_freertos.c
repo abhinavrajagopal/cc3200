@@ -39,8 +39,8 @@
  */
 
 #include <stdbool.h>
-#include <ti/drivers/dpl/HwiP.h>
-#include <FreeRTOS.h>
+#include <dpl/HwiP.h>
+#include <RTOS.h>
 #include <task.h>
 #include <portmacro.h>
 

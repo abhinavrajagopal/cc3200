@@ -34,10 +34,10 @@
  *  ======== SemaphoreP_freertos.c ========
  */
 
-#include <ti/drivers/dpl/SemaphoreP.h>
-#include <ti/drivers/dpl/HwiP.h>
+#include <dpl/SemaphoreP.h>
+#include <dpl/HwiP.h>
 
-#include <FreeRTOS.h>
+#include <RTOS.h>
 #include <semphr.h>
 #include <queue.h>
 
