@@ -9,15 +9,11 @@
 #include "RTOS.h"
 #include "task.h"
 
-/*-----------------------------------------------------------*/
-
 /*
  * Set up the hardware ready to run this demo.
  */
 static void prvSetupHardware( void );
 extern void main_blinky( void );
-
-/*-----------------------------------------------------------*/
 
 int main( void )
 {

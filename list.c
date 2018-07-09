@@ -50,7 +50,7 @@ ListItem_t * const pxIndex = pxList->pxIndex;
 
 	/* Only effective when configASSERT() is also defined, these tests may catch
 	the list data structures being overwritten in memory.  They will not catch
-	data errors caused by incorrect configuration or use of FreeRTOS. */
+	data errors caused by incorrect configuration or use of OS. */
 	listTEST_LIST_INTEGRITY( pxList );
 	listTEST_LIST_ITEM_INTEGRITY( pxNewListItem );
 
@@ -80,7 +80,7 @@ const TickType_t xValueOfInsertion = pxNewListItem->xItemValue;
 
 	/* Only effective when configASSERT() is also defined, these tests may catch
 	the list data structures being overwritten in memory.  They will not catch
-	data errors caused by incorrect configuration or use of FreeRTOS. */
+	data errors caused by incorrect configuration or use of OS. */
 	listTEST_LIST_INTEGRITY( pxList );
 	listTEST_LIST_ITEM_INTEGRITY( pxNewListItem );
 
@@ -98,27 +98,6 @@ const TickType_t xValueOfInsertion = pxNewListItem->xItemValue;
 	}
 	else
 	{
-		/* *** NOTE ***********************************************************
-		If you find your application is crashing here then likely causes are
-		listed below.  In addition see http://www.freertos.org/FAQHelp.html for
-		more tips, and ensure configASSERT() is defined!
-		http://www.freertos.org/a00110.html#configASSERT
-
-			1) Stack overflow -
-			   see http://www.freertos.org/Stacks-and-stack-overflow-checking.html
-			2) Incorrect interrupt priority assignment, especially on Cortex-M
-			   parts where numerically high priority values denote low actual
-			   interrupt priorities, which can seem counter intuitive.  See
-			   http://www.freertos.org/RTOS-Cortex-M3-M4.html and the definition
-			   of configMAX_SYSCALL_INTERRUPT_PRIORITY on
-			   http://www.freertos.org/a00110.html
-			3) Calling an API function from within a critical section or when
-			   the scheduler is suspended, or calling an API function that does
-			   not end in "FromISR" from an interrupt.
-			4) Using a queue or semaphore before it has been initialised or
-			   before the scheduler has been started (are interrupts firing
-			   before vTaskStartScheduler() has been called?).
-		**********************************************************************/
 
 		for( pxIterator = ( ListItem_t * ) &( pxList->xListEnd ); pxIterator->pxNext->xItemValue <= xValueOfInsertion; pxIterator = pxIterator->pxNext ) /*lint !e826 !e740 The mini list structure is used as the list end to save RAM.  This is checked and valid. */
 		{
