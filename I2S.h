@@ -237,8 +237,8 @@
  *******************************************************************************
  */
 
-#ifndef ti_drivers_I2S__include
-#define ti_drivers_I2S__include
+#ifndef I2S__include
+#define I2S__include
 
 #ifdef __cplusplus
 extern "C" {
@@ -247,7 +247,7 @@ extern "C" {
 #include <stdint.h>
 #include <stddef.h>
 
-#include <ti/drivers/utils/List.h>
+#include "list.h"
 
 /**
  *  @defgroup I2S_CONTROL I2S_control command and status codes

@@ -2,8 +2,8 @@
 #include <stdio.h>
 
 /* TI includes. */
-#include <ti/drivers/GPIO.h>
-#include <ti/boards/CC3200SF_LAUNCHXL/Board.h>
+#include "GPIO.h"
+#include "Board.h"
 
 /* Kernel includes. */
 #include "RTOS.h"
