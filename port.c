@@ -650,6 +650,7 @@ void xPortSysTickHandler( void )
  * Setup the systick timer to generate the tick interrupts at the required
  * frequency.
  */
+
 __attribute__(( weak )) void vPortSetupTimerInterrupt( void )
 {
 	/* Calculate the constants required to configure the tick interrupt. */
@@ -676,7 +677,7 @@ static void vPortEnableVFP( void )
 {
 	__asm volatile
 	(
-		"	ldr.w r0, =0xE000ED88		\n" /* The FPU enable bits are in the CPACR. */
+		"	ldr.w r0, = 0xE000ED88		\n" /* The FPU enable bits are in the CPACR. */
 		"	ldr r1, [r0]				\n"
 		"								\n"
 		"	orr r1, r1, #( 0xf << 20 )	\n" /* Enable CP10 and CP11 coprocessors, then save back. */
@@ -688,8 +689,7 @@ static void vPortEnableVFP( void )
 
 #if( configASSERT_DEFINED == 1 )
 
-	void vPortValidateInterruptPriority( void )
-	{
+	void vPortValidateInterruptPriority(void){
 	uint32_t ulCurrentInterrupt;
 	uint8_t ucCurrentPriority;
 
@@ -697,8 +697,8 @@ static void vPortEnableVFP( void )
 		__asm volatile( "mrs %0, ipsr" : "=r"( ulCurrentInterrupt ) :: "memory" );
 
 		/* Is the interrupt number a user defined interrupt? */
-		if( ulCurrentInterrupt >= portFIRST_USER_INTERRUPT_NUMBER )
-		{
+		if( ulCurrentInterrupt >= portFIRST_USER_INTERRUPT_NUMBER ){
+		
 			/* Look up the interrupt's priority. */
 			ucCurrentPriority = pcInterruptPriorityRegisters[ ulCurrentInterrupt ];
 
@@ -715,7 +715,7 @@ static void vPortEnableVFP( void )
 			configMAX_SYSCALL_INTERRUPT_PRIORITY.
 
 			Interrupts that	use the FreeRTOS API must not be left at their
-			default priority of	zero as that is the highest possible priority,
+			default priority of zero as that is the highest possible priority,
 			which is guaranteed to be above configMAX_SYSCALL_INTERRUPT_PRIORITY,
 			and	therefore also guaranteed to be invalid.
 
